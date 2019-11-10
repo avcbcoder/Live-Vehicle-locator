@@ -12,14 +12,17 @@ const BASE_URL = "http://localhost:3000/";
 
 function App() {
   async function fetchData() {
-    $.ajax({
+    const res = await $.ajax({
       url: BASE_URL,
       type: "GET",
-      success: function(result) {
-        const { payload } = result;
-        alert(JSON.stringify(result));
+      data: {
+        id: 4,
+        UserID: "avcb",
+        email: "av@gmail",
+        obj:{a:{df:10},b:5}
       }
     });
+    console.log(res);
   }
 
   return (

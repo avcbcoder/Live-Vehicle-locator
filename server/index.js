@@ -11,8 +11,13 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
 
+const printJson = json => {
+  return JSON.stringify(json);
+};
+
 app.get("/", (req, res) => {
-  res.json({ status: "ok", payload: { a: 10, b: 15 } });
+  console.log("query params =>" + printJson(req.query));
+  res.json({ status: "ok", payload: { a: 10, b: 15 }, yourQuery:req.query });
 });
 
 app.listen(PORT, () => {
