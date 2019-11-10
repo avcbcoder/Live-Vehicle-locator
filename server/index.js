@@ -12,7 +12,7 @@ app.use(morgan("dev"));
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.json({ success: true });
+  res.json({ status: "ok", payload: { a: 10, b: 15 } });
 });
 
 app.listen(PORT, () => {

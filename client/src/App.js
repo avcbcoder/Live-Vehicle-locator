@@ -1,8 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import styled from "styled-components";
+import $ from "jquery";
+
+const Button = styled.button`
+  cursor: pointer;
+`;
+
+const BASE_URL = "http://localhost:3000/";
 
 function App() {
+  async function fetchData() {
+    $.ajax({
+      url: BASE_URL,
+      type: "GET",
+      success: function(result) {
+        const { payload } = result;
+        alert(JSON.stringify(result));
+      }
+    });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,14 +29,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Button onClick={fetchData}>Learn React</Button>
       </header>
     </div>
   );
