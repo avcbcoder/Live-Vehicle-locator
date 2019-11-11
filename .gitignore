@@ -1,0 +1,5 @@
+# ignore dependencies in every subfolder 
+node_modules/
+
+# ignore all builds
+build/
