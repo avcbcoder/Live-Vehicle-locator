@@ -1,3 +1,3 @@
-import { router as userRouter } from "user";
+import userRouter from "user";
 
 export { userRouter };
