@@ -121,25 +121,6 @@ route.get("/check", async (req, res) => {
   }
 });
 
-route.get("/profile", async (req, res) => {
-  console.log(`user -> profile`);
-  try {
-    if (req.session && req.session.userId) {
-      const { userId } = req.session.userId;
-      const user = array.find(function(user) {
-        return user.id === userId;
-      });
-
-      if (user) res.json(user);
-      else
-        res.json({
-          err: true,
-          errorMessage: "invalid request : user id does not exist"
-        });
-    }
-  } catch (err) {
-    res.json({ err: true, errorMessage: DEFAULT_ERROR_MESSAGE });
-  }
-});
+route.get("/profile",);
 
 export { route };

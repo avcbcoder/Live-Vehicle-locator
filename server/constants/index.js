@@ -9,11 +9,11 @@ const PROCESS_ENV = {
   NODE_ENV: "development" // set this to 'production' for secure session
 };
 
-// user -> 1,
 const ERROR_CODE = {
-  E_101: { error: true, message: "already logged in, logout then login again" },
-  E_102: { error: true, message: "email is not registered" },
-  E_103: { error: true, message: "incorrect password" }
+  ALREADY_LOGGED_IN: "already logged in, logout then login again",
+  UNREGISTERED_EMAIL: "email is not registered",
+  INC_PASSWORD: "incorrect password",
+  UNAUTHORIZED_ACCESS: "login to view profile"
 };
 
-export { DEFAULT_ERROR_MESSAGE, PROCESS_ENV };
+export { DEFAULT_ERROR_MESSAGE, PROCESS_ENV,ERROR_CODE };

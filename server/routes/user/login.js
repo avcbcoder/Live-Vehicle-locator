@@ -1,33 +1,36 @@
-// import {}
+import { getUserByEmail } from "./demo-db";
+import { DEFAULT_ERROR_MESSAGE, ERROR_CODE } from "constants";
 
-route.get("/login", async (req, res) => {
-    console.log(`user -> login`);
-    let msg = "";
-    let err = "";
-    try {
-      const loggedIn = req.session.userId;
-      // already logged in
-      if (loggedIn) {
-        res.json(E_101);
+const {
+  ALREADY_LOGGED_IN,
+  UNREGISTERED_EMAIL,
+  INC_PASSWORD,
+} = ERROR_CODE;
+
+export default async (req, res) => {
+  console.log(`user -> login`);
+  try {
+    const loggedIn = req.session.userId;
+    // already logged in
+    if (loggedIn) {
+      throw ALREADY_LOGGED_IN;
+    } else {
+      const { email, password } = req.query;
+      const user = getUserByEmail(email);
+      // user not registered
+      if (!user) {
+        throw UNREGISTERED_EMAIL;
       } else {
-        const { email, password } = req.query;
-        const user = array.find(function(user) {
-          return user.email === email;
-        });
-        // user not registered
-        if (!user) {
-          res.json(E_102);
+        // password mismatch
+        if (!user.pass === password) {
+          throw INC_PASSWORD;
         } else {
-          // password mismatch
-          if (!user.pass === password) {
-            res.json(E_103);
-          } else {
-            req.session.userId = user.id;
-            res.json({ err: false });
-          }
+          req.session.userId = user.id;
+          res.json({ err: false });
         }
       }
-    } catch (err) {
-      res.json({ err: true, errorMessage: DEFAULT_ERROR_MESSAGE });
     }
-  });
+  } catch (err) {
+    res.json({ err: true, errorMessage: err ? err : DEFAULT_ERROR_MESSAGE });
+  }
+};
