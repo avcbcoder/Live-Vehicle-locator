@@ -1,25 +1,10 @@
-import { DEFAULT_ERROR_MESSAGE, ERROR_CODE } from "constants";
-
-const demoUsers = [
-  { id: 1, name: "av", email: "a@gmail", pass: "a" },
-  { id: 2, name: "bv", email: "b@gmail", pass: "b" },
-  { id: 3, name: "cv", email: "c@gmail", pass: "c" },
-  { id: 4, name: "dv", email: "d@gmail", pass: "d" }
-];
-
-const { E_101, E_103, E_103 } = ERROR_CODE;
-
 const route = require("express").Router();
 
 route.get("/", (req, res) => {
   res.render("signup");
 });
 
-/** check whether email is registered
- * -> 1. check is email exist in user db
- * req : {email} as query
- * res : json => {err:boolean, errorMessage:string, exist:boolean}
- */
+
 route.get("/check", async (req, res) => {
   console.log(`user -> check`);
   try {
