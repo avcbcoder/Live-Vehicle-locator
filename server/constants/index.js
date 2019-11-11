@@ -13,7 +13,9 @@ const ERROR_CODE = {
   ALREADY_LOGGED_IN: "already logged in, logout then login again",
   UNREGISTERED_EMAIL: "email is not registered",
   INC_PASSWORD: "incorrect password",
-  UNAUTHORIZED_ACCESS: "login to view profile"
+  UNAUTHORIZED_ACCESS: "login to view profile",
+  ALREADY_REGISTERED: "An account with this email is already registered",
+  INVALID_INPUT: "Data provided is not of the correct format"
 };
 
-export { DEFAULT_ERROR_MESSAGE, PROCESS_ENV,ERROR_CODE };
+export { DEFAULT_ERROR_MESSAGE, PROCESS_ENV, ERROR_CODE };

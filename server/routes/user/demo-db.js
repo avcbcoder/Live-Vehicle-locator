@@ -26,7 +26,7 @@ const createNewUser = async user => {
     id,
     name: user.name,
     email: user.email,
-    pass: user.password
+    password: user.password
   });
   id++;
 };
