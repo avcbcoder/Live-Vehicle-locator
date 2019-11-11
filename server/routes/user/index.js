@@ -1,3 +1,5 @@
+import { DEFAULT_ERROR_MESSAGE } from "constants";
+
 const route = require("express").Router();
 
 route.get("/", (req, res) => {
@@ -16,7 +18,7 @@ route.get("/check", async (req, res) => {
     const exist = false;
     res.json({ err: false, exist });
   } catch (err) {
-    res.json({ err: true, errorMessage: "verma ki galti" });
+    res.json({ err: true, errorMessage: DEFAULT_ERROR_MESSAGE });
   }
 });
 
@@ -26,29 +28,29 @@ route.get("/check", async (req, res) => {
  * res : json => {err:boolean, errorMessage:string, exist:boolean}
  */
 route.get("/check", async (req, res) => {
-    console.log(`user -> check`);
-    try {
-      const { email } = req.query;
-      const exist = false;
-      if(exist){
-          // extract details of user (extract password)
-      }
-      res.json({ err: false, exist });
-    } catch (err) {
-      res.json({ err: true, message: "verma ki galti" });
+  console.log(`user -> check`);
+  try {
+    const { email } = req.query;
+    const exist = false;
+    if (exist) {
+      // extract details of user (extract password)
     }
-  });
+    res.json({ err: false, exist });
+  } catch (err) {
+    res.json({ err: true, errorMessage: DEFAULT_ERROR_MESSAGE });
+  }
+});
 
 route.get("/", async (req, res) => {
-    console.log(`user -> check`);
-    try {
-      const { email } = req.query;
-      const exist = false;
-      res.json({ err: false, exist });
-    } catch (err) {
-      res.json({ err: true, message: "verma ki galti" });
-    }
-  });
+  console.log(`user -> check`);
+  try {
+    const { email } = req.query;
+    const exist = false;
+    res.json({ err: false, exist });
+  } catch (err) {
+    res.json({ err: true, message: "verma ki galti" });
+  }
+});
 
 route.post("/", async (req, res) => {
   try {

@@ -1,0 +1,7 @@
+const DEFAULT_ERROR_MESSAGE = "Verma ki galti";
+
+const PROCESS_ENV = {
+  DEFAULT_PORT: 3000
+};
+
+export { DEFAULT_ERROR_MESSAGE, PROCESS_ENV };

@@ -1,0 +1,10 @@
+# For testing purpose 
+# Make sure you have 
+#   1. 'REST client' vs code extension installed
+#   2. Server running
+
+GET http://localhost:3000/
+
+###
+
+GET http://localhost:3000?name=ankit&last-name=verma

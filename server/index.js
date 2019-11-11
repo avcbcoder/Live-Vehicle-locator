@@ -17,7 +17,7 @@ const printJson = json => {
 
 app.get("/", (req, res) => {
   console.log("query params =>" + printJson(req.query));
-  res.json({ status: "ok", payload: { a: 10, b: 15 }, yourQuery:req.query });
+  res.json({ status: "ok", payload: { a: 10, b: 15 }, yourQuery: req.query });
 });
 
 // app.use('/user', require('./routes/login'))
