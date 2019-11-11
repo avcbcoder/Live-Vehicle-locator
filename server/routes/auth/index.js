@@ -12,9 +12,8 @@ route.get("/", (req, res) => {
 route.get("/auth", async (req, res) => {
   const 
   try {
-    const { email } = req.query;
-    const exist = false;
-    res.json({ err: false, exist });
+    const { email, password } = req.query;
+    res.json({ err: false, message:"Logged in successfully" });
   } catch (err) {
     res.json({ err: true, errorMessage: "verma ki galti" });
   }
