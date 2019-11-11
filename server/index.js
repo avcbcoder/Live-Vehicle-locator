@@ -20,6 +20,8 @@ app.get("/", (req, res) => {
   res.json({ status: "ok", payload: { a: 10, b: 15 }, yourQuery:req.query });
 });
 
+app.use('/user', require('./routes/login'))
+
 app.listen(PORT, () => {
   console.log("listening on port " + PORT);
 });
